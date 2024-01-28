@@ -1,0 +1,46 @@
+/* Resetting default styles and setting font family for the entire document */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling for navigation bar links on hover */
+#navBar li a:hover {
+    border-bottom: 4px solid #0aaa01;
+    /* Add a green border bottom on hover */
+    cursor: pointer;
+    color: #0aaa01 !important;
+    /* Change text color on hover to green */
+    transition: .1s ease-out;
+    /* Add a smooth transition effect */
+}
+
+/* Styling for the "Read" class, often used for links */
+.Read {
+    display: block;
+    margin-top: 10px;
+    color: green;
+    text-decoration: none;
+}
+
+/* Styling for cards with a box shadow effect */
+.card {
+    box-shadow: rgba(128, 128, 128) 0px 3px 8px;
+    /* Add a subtle box shadow */
+}
+
+/* Responsive styling using media queries for screens up to 994.98px width */
+@media (max-width: 994.98px) {
+    #navBar li a {
+        flex-direction: column;
+        /* Change direction of navigation links to column */
+        text-align: center;
+        /* Center-align text in navigation links */
+    }
+
+    .navbar-nav .nav-item {
+        margin: 5px 0;
+        /* Add margin to navbar items for better spacing */
+    }
+}
