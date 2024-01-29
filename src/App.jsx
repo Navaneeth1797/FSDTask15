@@ -1,7 +1,7 @@
 // Importing necessary modules and components from React and react-router-dom
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Navbar from "./Components/Navbar.jsx";
+import NavBar from "./components/NavBar.jsx";
 import All from "./Components/All.jsx";
 import Fsd from "./Components/Fsd.jsx";
 import Ds from "./Components/Ds.jsx";
@@ -277,7 +277,7 @@ function App() {
       {/* Setting up React Router for navigation */}
       <BrowserRouter>
         {/* Including the Navbar component for navigation */}
-        <Navbar />
+        <NavBar />
 
         {/* Defining Routes for different sections of the application */}
         <Routes>
