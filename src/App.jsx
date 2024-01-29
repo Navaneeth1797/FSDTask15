@@ -1,12 +1,12 @@
 // Importing necessary modules and components from React and react-router-dom
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Navbar from "./Components/Navbar/";
-import All from "./Components/All/";
-import Fsd from "./Components/Fsd/";
-import Ds from "./Components/Ds/";
-import Cs from "./Components/Cs/";
-import Career from "./Components/Career/";
+import Navbar from "./Components/Navbar";
+import All from "./Components/All";
+import Fsd from "./Components/Fsd";
+import Ds from "./Components/Ds";
+import Cs from "./Components/Cs";
+import Career from "./Components/Career";
 // Main App component
 function App() {
   // Sample data for different categories
