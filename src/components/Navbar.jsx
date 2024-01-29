@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // Navbar component for navigation
-function NavBar() {
+ function NavBar() {
   return (
     <>
       {/* Navigation bar with flex container and centering */}
@@ -65,5 +65,4 @@ function NavBar() {
     </>
   );
 }
-
 export default NavBar;
