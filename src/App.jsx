@@ -1,12 +1,181 @@
 // Importing necessary modules and components from React and react-router-dom
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import NavBar from './components/NavBar';
-import All from './components/All';
-import Fsd from './components/Fsd';
-import Ds from './components/Ds';
-import Cs from './components/Cs';
-import Career from './components/Career';
+import { Link } from "react-router-dom";
+// import NavBar from './components/NavBar';
+// import All from './components/All';
+// import Fsd from './components/Fsd';
+// import Ds from './components/Ds';
+// import Cs from './components/Cs';
+// import Career from './components/Career';
+
+function NavBar() {
+  return (
+    <>
+      {/* Navigation bar with flex container and centering */}
+      <div className="d-flex justify-content-center mt-4" id="navBar">
+        {/* Bootstrap navbar with a list of navigation items */}
+        <nav className="navbar navbar-expand-lg">
+          <ul className="navbar-nav me-auto mx-auto text-center fw-bold mb-2 mb-lg-0">
+            {/* Navigation item for displaying all articles */}
+            <li className="nav-item mx-3">
+              <Link
+                to="/all"
+                className="nav-link active"
+                aria-current="page"
+                href="#"
+              >
+                ALL
+              </Link>
+            </li>
+
+            {/* Navigation item for displaying fullstack development articles */}
+            <li className="nav-item mx-3">
+              <Link
+                to="/fullstack-development"
+                className="nav-link active"
+                href="#"
+              >
+                FULL STACK DEVELOPMENT
+              </Link>
+            </li>
+
+            {/* Navigation item for displaying data science articles */}
+            <li className="nav-item mx-3">
+              <Link to="/data-science" className="nav-link active" href="#">
+                DATA SCIENCE
+              </Link>
+            </li>
+
+            {/* Navigation item for displaying cyber security articles */}
+            <li className="nav-item mx-3">
+              <Link to="/cyber-security" className="nav-link active" href="#">
+                CYBER SECURITY
+              </Link>
+            </li>
+
+            {/* Navigation item for displaying career-related articles */}
+            <li className="nav-item mx-3">
+              <Link
+                to="/career"
+                className="nav-link active"
+                aria-disabled="true"
+              >
+                CAREER
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      {/* Horizontal line as a separator */}
+      <hr />
+    </>
+  );
+}
+function Card({ cardData }) {
+  // Rendering a card with article information
+  return (
+    <div className="col-lg-4 col-sm-6 mb-4">
+      <div className="card h-100 d-flex flex-column">
+        {/* Displaying the article image */}
+        <img src={cardData.image} className="card-img-top" alt="..." />
+
+        <div className="card-body flex-grow-1">
+          {/* Displaying the article title */}
+          <h3>{cardData.title}</h3>
+
+          {/* Displaying the article description */}
+          <p className="card-text">{cardData.description}</p>
+
+          {/* Link to read more, opens in a new tab */}
+          <a href={cardData.source} className="Read" target="_blank">
+            <strong> Read More &gt;&gt;</strong>
+          </a>
+        </div>
+
+        <div className="card-footer">
+          {/* Displaying the article publication date */}
+          <small className="text-body-secondary">26 December 2023</small>
+        </div>
+      </div>
+    </div>
+  );
+}
+// Functional component for displaying all articles
+function All({ data }) {
+  // Rendering a row of cards based on the provided data
+  return (
+    <>
+      <div className="row">
+        {data.map((cardData, i) => {
+          // Rendering individual Card component for each article
+          return <Card cardData={cardData} key={i} />;
+        })}
+      </div>
+    </>
+  );
+}
+function Cs({ data }) {
+  // Filtering data to get articles related to cyber security
+  const cyberData = data.filter((item) => item.head === "cybersecurity");
+
+  // Rendering a row of cards for cyber security-related articles
+  return (
+    <div className="row">
+      {cyberData.map((cardData, i) => {
+        // Rendering individual Card component for each article
+        return <Card cardData={cardData} key={i} />;
+      })}
+    </div>
+  );
+}
+
+// Functional component for rendering data science-related articles
+function Ds({ data }) {
+  // Filtering data to get articles related to data science
+  const dataSciencedata = data.filter((item) => item.head === "datascience");
+
+  // Rendering a row of cards for data science-related articles
+  return (
+    <div className="row">
+      {dataSciencedata.map((cardData, i) => {
+        // Rendering individual Card component for each article
+        return <Card cardData={cardData} key={i} />;
+      })}
+    </div>
+  );
+}
+
+function Career({ data }) {
+  // Filtering data to get articles related to career
+  const careerData = data.filter((item) => item.head === "career");
+
+  // Rendering a row of cards for career-related articles
+  return (
+    <div className="row">
+      {careerData.map((cardData, i) => {
+        // Rendering individual Card component for each article
+        return <Card cardData={cardData} key={i} />;
+      })}
+    </div>
+  );
+}
+
+
+
+function Fsd({ data }) {
+  // Filtering data to include only Full Stack Development articles
+  const fsdData = data.filter((item) => item.head === "fullstack");
+  // Rendering a row of cards based on filtered Full Stack Development data
+  return (
+    <div className="row">
+      {fsdData.map((cardData, i) => {
+        // Rendering individual Card component for each article
+        return <Card cardData={cardData} key={i} />;
+      })}
+    </div>
+  );
+}
 // Main App component
 function App() {
   // Sample data for different categories
